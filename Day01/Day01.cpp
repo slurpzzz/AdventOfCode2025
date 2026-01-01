@@ -57,5 +57,3 @@ int main()
 	part1();
 	part2();
 }
-
-

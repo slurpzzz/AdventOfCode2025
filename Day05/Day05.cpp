@@ -3,7 +3,6 @@
 #include <sstream>
 #include <fstream>
 #include <cmath>
-#include <unordered_set>
 #include <vector>
 using namespace std;
 
@@ -63,9 +62,9 @@ void part2()
 				freshRanges.erase(freshRanges.begin() + i);
 				i--;
 				break;
-			} else if (first <= cleanSecond && second > cleanSecond) {
+			} else if (first <= cleanSecond && second > cleanSecond) { //overlaps on right side
 				freshRanges[i].first = cleanSecond + 1;
-			} else if (second >= cleanFirst && first < cleanFirst) {
+			} else if (second >= cleanFirst && first < cleanFirst) { //overlaps on left side
 				freshRanges[i].second = cleanFirst - 1;
 			}
 		}
