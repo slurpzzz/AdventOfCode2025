@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <cmath>
+#include <chrono>
 #include <vector>
 using namespace std;
 
@@ -74,13 +75,19 @@ void part2()
 		//cout << range.first << '\t' << range.second << '\n';
 		total += (range.second - range.first) + 1;
 	}
-	cout << total;
+	cout << total << '\n';
 
 	ifs.close();
 }
 
 int main()
 {
+	auto start = chrono::high_resolution_clock::now();
 	part1();
+	auto part1end = chrono::high_resolution_clock::now();
 	part2();
+	auto part2end = chrono::high_resolution_clock::now();
+
+	cout << "Part 1: " << chrono::duration_cast<chrono::milliseconds>(part1end - start) << '\n';
+	cout << "Part 2: " << chrono::duration_cast<chrono::milliseconds>(part2end - part1end) << '\n';
 }

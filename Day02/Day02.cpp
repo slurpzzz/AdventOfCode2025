@@ -38,14 +38,12 @@ bool isInvalid_2(long long n)
 	string_view n_str_view(n_str);
 	for (int i = 1; i <= maxSequence; i++) {
 		if (digits % i != 0) continue;
-		bool invalid = false;
 		string_view seq = n_str_view.substr(0, i);
 		int j = i;
 		while (n_str_view.substr(j, i) == seq) {
-			if (j + i == digits) invalid = true;
+			if (j + i == digits) return true;
 			j += i;
 		}
-		if (invalid) return true;
 	}
 	return false;
 }

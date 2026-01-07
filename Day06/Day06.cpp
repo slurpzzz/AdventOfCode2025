@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <cmath>
+#include <chrono>
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -100,9 +101,12 @@ void part2()
 
 int main()
 {
+	auto start = chrono::high_resolution_clock::now();
 	part1();
+	auto part1end = chrono::high_resolution_clock::now();
 	part2();
-}
+	auto part2end = chrono::high_resolution_clock::now();
 
-// 10695785254836
-// 10695785245101
+	cout << "Part 1: " << chrono::duration_cast<chrono::milliseconds>(part1end - start) << '\n';
+	cout << "Part 2: " << chrono::duration_cast<chrono::milliseconds>(part2end - part1end) << '\n';
+}
